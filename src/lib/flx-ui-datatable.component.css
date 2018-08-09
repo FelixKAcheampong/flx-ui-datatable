@@ -1,0 +1,71 @@
+.flx-ui-datatable-main,.flx-ui-datatable-header{
+    padding-top:1em;padding-bottom:1em;
+    margin-top:.5em;
+}
+.flx-ui-datatable-main table{
+    width:100%
+}.flx-ui-datatable-main table tbody td{
+    overflow-wrap:break-word
+}
+.flx-ui-datatable-main table tbody td span button{
+    margin-right:.2em
+}
+.flx-ui-datatable-main button.flx-ui-datatable-pagination-buttons{
+    border-radius:50em!important;
+    -moz-border-radius:50em!important;
+    -webkit-border-radius:50em!important;
+    -o-border-radius:50em!important;
+    -ms-border-radius:50em!important
+    ;height:30px!important;
+    width:30px!important;
+    border:none!important
+}.flx-ui-datatable-main .rmpd{
+    padding-left:0!important;padding-right:0!important
+}.flx-datatable-pagination button:hover>span{opacity:1}.flx-datatable-pagination .flx-datatable-tooltip-next,.flx-datatable-pagination .flx-datatable-tooltip-prev{position:absolute;background-color:rgba(4,114,19,.486);color:#fff;padding-left:.5em;padding-right:.5em;font-size:13px;margin-top:.1em;opacity:0;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;-o-border-radius:3px;-ms-border-radius:3px}
+.flx-pagination-end{
+    background-color:rgba(201,37,37,.425)!important;
+    color:#fff!important
+}
+.flx-datatable-tooltip-next{
+    margin-left:1em
+}
+.flx-datatable-tooltip-prev{
+    left:-1em
+}
+span.dropdown button{
+    border-radius:50em;
+}
+.rmsh{
+    box-shadow:none!important;
+    -moz-box-shadow:none!important;-webkit-box-shadow:none!important;-o-box-shadow:none!important;-ms-box-shadow:none!important
+}.rmrd{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important;-o-border-radius:0!important;-ms-border-radius:0!important}.fxl-ui-table{width:100%;border-collapse:collapse;margin-top:.5em}.fxl-ui-table thead{border-bottom:2px solid #ccc}.fxl-ui-table thead th{padding-top:.5em;padding-bottom:.5em;padding-left:.5em}.fxl-ui-table tbody tr td{padding-top:.3em;padding-bottom:.3em;padding-left:.5em}.fxl-ui-table tbody tr:hover{background-color:#fbfcfe!important}.fxl-ui-table tbody tr:nth-of-type(odd){background-color:#fff}.fxl-ui-table tbody tr:nth-of-type(even){background-color:#f8f9fa;border-top:1px solid #f0f1f2;border-bottom:1px solid #f0f1f2}button.flx-d-b{background-color:#fff;color:#aaa;border:1px solid #fff;padding-top:.2em;padding-bottom:.2em;border-radius:.1em;box-shadow:0 1px 2px 1px #ddd;-moz-box-shadow:0 1px 2px 1px #ddd;-webkit-box-shadow:0 1px 2px 1px #ddd;-o-box-shadow:0 1px 2px 1px #ddd;-ms-box-shadow:0 1px 2px 1px #ddd;-moz-box-shadow:0 1px 2px 1px #ddd;-webkit-box-shadow:0 1px 2px 1px #ddd;-o-box-shadow:0 1px 2px 1px #ddd;-ms-box-shadow:0 1px 2px 1px #ddd;margin-right:.5em!important}
+    .flx-multiple-deletion-button{
+        margin-left:.5em;background-color:#fff;color:#999;
+        border:1px solid #ddd;font-weight:400;
+        box-shadow:0 1px 1px 1px #ddd;
+        -moz-box-shadow:0 1px 1px 1px #ddd;
+        -webkit-box-shadow:0 1px 1px 1px #ddd;
+        -o-box-shadow:0 1px 1px 1px #ddd;
+        -ms-box-shadow:0 1px 1px 1px #ddd;
+        border-radius:1px;-moz-border-radius:1px;
+        -webkit-border-radius:1px;
+    }
+        /* -o-border-radius:1px;-ms-border-radius:1px}.fxl-ui-table tbody tr td span:first-child button{color:#5cb85c}.fxl-ui-table tbody tr td span:nth-of-type(2) button{color:#428bca}.fxl-ui-table tbody tr td span:last-child button{color:#d9534f}.fxl-ui-table tbody tr td span:first-child button:hover{background-color:#5cb85c;border:1px solid #5cb85c;color:#fff;transition:.3s;-moz-transition:.3s;-webkit-transition:.3s;-o-transition:.3s;-ms-transition:.3s}.fxl-ui-table tbody tr td span:nth-of-type(2) button:hover{background-color:#428bca;border:1px solid #428bca;color:#fff;transition:.3s;-moz-transition:.3s;-webkit-transition:.3s;-o-transition:.3s;-ms-transition:.3s}.fxl-ui-table tbody tr td span:last-child button:hover{background-color:#d9534f;border:1px solid #d9534f;color:#fff;transition:.3s;-moz-transition:.3s;-webkit-transition:.3s;-o-transition:.3s;-ms-transition:.3s}.fxl-ui-table tbody tr td span button:hover>span{animation:.1s ease-in-out alternate h;-moz-animation:.1s ease-in-out alternate h;-webkit-animation:.1s ease-in-out alternate h;-o-animation:.1s ease-in-out alternate h;-ms-animation:h .1s ease-in-out alternate}button.flx-ui-add-button{background-color:#428bca;border:1px solid #3577b1;height:34px;color:#fff}button.flx-ui-add-button:hover>span{animation:.1s ease-in-out alternate h;-moz-animation:.1s ease-in-out alternate h;-webkit-animation:.1s ease-in-out alternate h;-o-animation:.1s ease-in-out alternate h;-ms-animation:h .1s ease-in-out alternate}@-webkit-keyframes h{from{transform:translateX(-100%);-moz-transform:translateX(-100%);-webkit-transform:translateX(-100%);-o-transform:translateX(-100%);-ms-transform:translateX(-100%)}to{transform:translateX(0);-moz-transform:translateX(0);-webkit-transform:translateX(0);-o-transform:translateX(0);-ms-transform:translateX(0)}}@keyframes h{from{transform:translateX(-100%);-moz-transform:translateX(-100%);-webkit-transform:translateX(-100%);-o-transform:translateX(-100%);-ms-transform:translateX(-100%)}to{transform:translateX(0);-moz-transform:translateX(0);-webkit-transform:translateX(0);-o-transform:translateX(0);-ms-transform:translateX(0)}} */
+        /* @media only screen and (min-width:1169px){tr.flxuidatatablerow td{min-width:100px;max-width:200px}}@media only screen and (max-width:1024px){tr.flxuidatatablerow td{max-width:auto}}@media only screen and (max-width:990px){.search-container{padding-left:0!important;padding-right:0!important;padding-top:3em;}} */
+        ul.dropdown-menu-export li a{
+            padding-top:0.5em;padding-bottom:0.5em;
+            font-size:13px;
+        }
+        .flx-total-data{
+            margin-top:1em;
+            font-size:12px;
+            color:#999;
+        }
+        .flx-total-data span{
+            font-weight: bold;
+            color:#555;
+        }
+        ul.dropdown-menu-export{
+            width:100px;
+           margin-left:-120px;
+        }

@@ -1,0 +1,90 @@
+<div class="col-md-12 rmpd flx-ui-datatable-main">
+    <div id="export_loading" class="col-md-12 text-center" style="display: none;margin-bottom:0.5em;color:#ff8c00;font-size:13px;font-weight:bold;">Exporting...</div>
+    <div class="col-md-12 flx-ui-datatable-header">
+        <div class="col-xs-3 col-sm-3 col-md-2" style="position:relative;z-index: 1;">
+            <select class="form-control rmsh rmrd {{ classes?.paginationselect }}" (change)="paginateDatatable($event?.target?.value)">
+                <option *ngFor="let paging of service?.pagination" [value]="paging?.value">{{ paging?.label }}</option>
+            </select>
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-2 text-center flx-datatable-pagination rmpd" style="position:relative;z-index: 2;">
+            <button mat-icon-button [ngClass]="{'flx-pagination-end': disablePrevtButton()}" (click)="nextPrevItem('prev')" [disabled]="disablePrevtButton()" class="flx-ui-datatable-pagination-buttons {{ classes?.paginationButton }}"><span class="fa fa-angle-double-left fa-1x"></span> <span class="flx-datatable-tooltip-prev" [ngClass]="{'flx-pagination-end': disablePrevtButton()}">Previous</span> </button>
+                {{ service?.dataOffset | ceil: limit }} / {{ service?.totalItems | ceil: limit }}
+            <button mat-icon-button [ngClass]="{'flx-pagination-end': disableNextButton()}" (click)="nextPrevItem('next')" [disabled]="disableNextButton()" class="flx-ui-datatable-pagination-buttons {{ classes?.paginationButton }}"><span class="fa fa-angle-double-right fa-1x"></span> <span class="flx-datatable-tooltip-next" [ngClass]="{'flx-pagination-end': disableNextButton()}">Next</span></button>
+        </div>
+        <div [class]="getSearchColumns()">
+            <input type="text" [style.background]="searchBar?.background" [style.color]="searchBar?.textColor" [ngStyle]="{border:searchBar?.borderSize +' solid '+ searchBar?.borderColor} " (keyup)="filterData($event?.target?.value)" class="form-control rmsh rmrd customclass" [placeholder]="searchPlaceholder">
+        </div>
+        <div class="col-md-1 rmpd" *ngIf="hasAddButton">
+            <button (click)="addButtonClick()" class="{{ classes?.addButton }}" [style.background]="addButton?.background" [style.borderColor]="addButton?.background" [style.color]="addButton?.textColor"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        </div>
+        <div class="col-md-1" *ngIf="enableDataExports">
+            <span class="dropdown">
+                <button class="btn {{ classes?.exportButton }} dropdown-toggle" type="button" data-toggle="dropdown">
+                
+                <i class="caret"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-export">
+                    <li class="dropdown-header">{{ dataExportsConfig?.title }}. <input type="checkbox" (change)="checkToExportOption($event?.target?.checked)" style="position: relative;top:0.3em;"> <sup style="font-size:10px;color:#999;"> All</sup></li> 
+                    <li class="divider"></li>
+                    <li class="dropdown-submenu" *ngFor="let export of dataExportsConfig?.exportsTo" (click)="exportDocumentsAs(export)">
+                        <a href="javascript:void(0)" *ngIf="export=='print'"><i class="glyphicon glyphicon-print"></i> Print</a>
+                        <a href="javascript:void(0)" *ngIf="export=='pdf'" style="color:#ff0000"><i class="glyphicon glyphicon-file"></i> PDF</a>
+                        <a href="javascript:void(0)" *ngIf="export=='excel'" style="color:#009900;"><i class="glyphicon glyphicon-file"></i> Excel</a>            
+                        <a href="javascript:void(0)" *ngIf="export=='word'" style="color:#335599;"><i class="glyphicon glyphicon-file"></i> Word</a>                        
+                    </li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">
+                        <span  *ngIf="!isExportAll">{{ (displayData | async)?.length }}</span>
+                        <span  *ngIf="isExportAll">{{ (service?.flxData | async)?.length }}</span> 
+                    </li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-12 rmpd table-responsive">
+        <table class="table {{ classes?.tableType }} table-responsive" id="flx_ui_table_tag">
+            <thead class="{{ classes?.tableHeader }}">
+                <tr>
+                    <th *ngIf="!hideNumbers">N<sup><u>o</u></sup></th>
+                    <th *ngFor="let header of headers">{{ header }}</th>
+                    <th *ngIf="hasActionButtons">{{ actionHeader }} 
+                        <input type="checkbox" [checked]="service?.multipleDeletion?.length>0" (change)="addRemove($event?.target?.checked)" *ngIf="enableMultipleSelection">
+                        <button class="flx-multiple-deletion-button" *ngIf="enableMultipleSelection && service?.multipleDeletion?.length>0" (click)="confirmDelete()"><span [class]="multipleSelectButton?.icon"></span> {{ multipleSelectButton?.text }}</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="!service?.loadFinish">                    
+                    <td colspan="20" class="text-center">
+                        <img *ngIf="spinnerSrc" [src]="spinnerSrc" style="margin-top:1em;margin-bottom:1em;">
+                    </td>
+                </tr>
+                <tr class="flxuidatatablerow" id="flxdatatable_singlerow" *ngFor="let data of displayData | async;let i=index">
+                    <td class="{{ classes?.tableData }}" *ngIf="!hideNumbers" style="color: #999;">{{ offset+i }}</td>
+                    <td class="{{ classes?.tableData }}" *ngFor="let dataKey of dataKeys">{{ data[dataKey] }}</td>
+                    <td *ngIf="hasActionButtons" scope="row">
+                        <span *ngFor="let aButton of actionButtons;let buttonIndex=index">
+                            <button (click)="actionButtonClicked(i,buttonIndex)" class="btn {{ aButton?.class }}">
+                                <span class="action-button-icon-left" [class]="aButton?.icon" *ngIf="!aButton?.iconPosition || aButton?.iconPosition!='right'"></span>
+                                 <span class="button-text"> {{ aButton?.text }} </span>
+                                <span [class]="aButton?.icon" *ngIf="aButton?.iconPosition=='right'"></span>
+                            </button>
+                        </span> 
+                        <input type="checkbox" checked (change)="addRemoveDeleteItem(data[multipleSelectKey],i,$event?.target?.checked)" *ngIf="enableMultipleSelection && service?.multipleDeletion?.length>0">
+                    </td>
+                </tr>
+                <tr *ngIf="tData?.length<1">
+                    <td colspan="10" class="text-center" *ngIf="service?.loadFinish">
+                        <span style="color:#ff0000;font-size:13px;">No data found</span> <br>
+                        <button style="margin-top:1em;" (click)="service?.loadFlxDataTableData()" class="btn btn-default {{ classes?.reloadbutton }}" color="primary"><span class="fa fa-refresh"></span> Reload</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="col-md-12 rmpd flx-total-data" *ngIf="showBottomInfo">
+            <div class="col-md-4 text-left rmpd">Total pagination: <span> {{ service?.totalItems | ceil: limit }}</span></div>
+            <div class="col-md-4 text-center rmpd"># of items per pagination: <span>{{ limit }}</span></div>
+            <div class="col-md-4 text-right rmpd">Total items: <span>{{ (service?.flxData | async)?.length }}</span></div>
+        </div>
+    </div>
+</div>

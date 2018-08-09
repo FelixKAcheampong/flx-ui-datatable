@@ -1,0 +1,21 @@
+{
+  "name": "flx-ui-datatable",
+  "version": "1.0.6",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "private": false,
+  "author":"Felix K. Acheampong",
+  "repository": {
+    "type": "git",
+    "url":"https://github.com/FelixKAcheampong/flx-ui-datatable"
+  },
+  "license": "MIT",
+  "keywords": [
+    "Angular","Datatable","flx-ui-datatable","Javascript"
+  ],
+  "files": [
+    "README.md"
+  ]
+}
